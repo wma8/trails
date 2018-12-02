@@ -1,3 +1,7 @@
+/**
+Credited all to threejs.org. I love this site so much
+*/
+
 var direction = 0;
 var npdirection = 0;
 var foodStatus = 0;
@@ -5,6 +9,7 @@ var xPos = 0;
 var yPos = 0;
 var apple = null;
 var snake = null;
+var npSnake = null;
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
 var canvas = document.createElement('canvas');
@@ -235,16 +240,19 @@ var eaten = function() {
 
 	}
 };
+
+var judgeDir(npdirection) {
+	if()
+}
+
 var animate = function () {
 
 	window.setTimeout(function(){
-		
 		requestAnimationFrame( animate );
 		move();
 		eaten();
 		reborn();
-		renderer.render( scene, camera );
-			
+		renderer.render( scene, camera );	
 	}, 500)
 
 
