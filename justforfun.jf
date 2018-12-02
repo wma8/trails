@@ -101,6 +101,7 @@ cube4.position.x = 10 ;
 cube4.position.y = -10;
 scene.add( cube4 );
 camera.position.z = 20;
+camera.position.y = -10;
 
 // Create base for grids
 var geometry = new THREE.PlaneGeometry( 20, 20 );
@@ -209,14 +210,16 @@ var reborn = function() {
 		}
 		direction = 0;
 		createUserSnake();
+		return;
 	}
 	for(var i = 1; i < snake.length; i++) {
 		if (temp1 == snake[i].position.x && temp2 == snake[i].position.y) {
 			for(var i = 0; i < snake.length; i++) {
-			scene.remove(snake[i]);
-		}
+				scene.remove(snake[i]);
+			}
 			direction = 0;
 			createUserSnake();
+			return;
 		}
 		
 	}
