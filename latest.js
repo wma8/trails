@@ -236,8 +236,18 @@ var reborn = function() {
 			createUserSnake();
 			return;
 		}
-		
 	}
+	for(var j = 0; j < npsnake.length; j++) {
+		if(temp1 == npsnake[j].position.x && temp2 == npsnake[j].position.y) {
+			for(var i = 0; i < snake.length; i++) {
+				scene.remove(snake[i]);
+			}
+			direction = 0;
+			createUserSnake();
+			return;
+		}
+	}
+
 };
 
 var rebornnp = function() {
