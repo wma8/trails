@@ -73,6 +73,18 @@ var snakePiece = function(xpos, ypos) {
 	scene.add(snake);
 	return snake;
 }
+var npsnakePiece = function(xpos, ypos) {
+	var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+	var material3 = new THREE.MeshLambertMaterial({
+		color: 0xF3FFE2,
+		map: new THREE.TextureLoader().load('https://wma8.github.io/prog4/brick_roughness.jpg')
+	});
+	var snake = new THREE.Mesh( geometry, material3 );
+	snake.position.x = xpos;
+	snake.position.y = ypos;
+	scene.add(snake);
+	return snake;
+}
 var Food = function() {
 	var geometry = new THREE.BoxGeometry( 1, 1, 1 );
 	var food = new THREE.Mesh( geometry, material1 );
@@ -139,7 +151,7 @@ var npSnake = function() {
 	var sxPos = -6;
 	var syPos = -2;
 	for( var i = 0; i < npsnake.length; i++) {
-		npsnake[i] = snakePiece(sxPos-i, syPos);
+		npsnake[i] = npsnakePiece(sxPos-i, syPos);
 	}
 };
 
