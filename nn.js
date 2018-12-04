@@ -259,6 +259,14 @@ var reborn = function() {
 			return;
 		}
 	}
+	if(temp1 == npsnake[0].position.x && temp2 == npsnake[0].position.y){
+		for(var i = 0; i < snake.length; i++) {
+				scene.remove(snake[i]);
+			}
+			direction = 0;
+			createUserSnake();
+			return;
+	}
 
 };
 
@@ -282,29 +290,26 @@ var rebornnp = function() {
 			npSnake();
 			return;
 		}
+		
 	}
-  for(var j = 1; j < snake.length; j++) {
-		if(temp1 == npsnake[j].position.x && temp2 == npsnake[j].position.y) {
+
+	for(var j = 1; j < snake.length; j++) {
+		if(temp1 == snake[j].position.x && temp2 == snake[j].position.y) {
 			for(var i = 0; i < npsnake.length; i++) {
-				scene.remove(npsnake[i]);
-			}
-			direction = 0;
-			npSnake();
-			return;
-		}
-	}
-  if(temp1 == npsnake[j].position.x && temp2 == npsnake[j].position.y) {
-    for(var i = 0; i < npsnake.length; i++) {
 				scene.remove(npsnake[i]);
 			}
 			npdirection = 0;
 			npSnake();
-    for(var i = 0; i < snake.length; i++) {
-				scene.remove(snake[i]);
-			}
-			direction = 0;
-			createUserSnake();
-  }
+			return;
+		}
+	}
+	if(temp1 == snake[0].position.x && temp2 == snake[0].position.y){
+		for(var i = 0; i < npsnake.length; i++) {
+			scene.remove(npsnake[i]);
+		}
+		npdirection = 0;
+		npSnake();
+	}
 };
 
 
@@ -323,7 +328,7 @@ var npeaten = function() {
 		apple.position.x = Math.round(Math.random() * 17 - 9);
 		apple.position.y = Math.round(Math.random() *-17 + 9);
 		// Lengthen the snake
-		npsnake.push(snakePiece(npsnake[npsnake.length - 1].position.x, npsnake[npsnake.length - 1].position.y));
+		npsnake.push(npsnakePiece(npsnake[npsnake.length - 1].position.x, npsnake[npsnake.length - 1].position.y));
 
 	}
 };
